@@ -1,0 +1,6 @@
+(library
+ (name search)
+ (public_name Search)
+ (libraries str unix)
+ (instrumentation
+  (backend bisect_ppx)))
