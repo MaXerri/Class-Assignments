@@ -1,7 +1,9 @@
 # Class-Assignments
 This is a conglomerate of class projects from CS3110: Functional Programming; CS 4780: Introduction to Machine Learning; CS 4820: Algorithms; and CS 4750: Foundations of Robotics
 
-Description of Project/Assignment Folders and Their Corresponding Classes: 
+
+Description of Project/Assignment Folders and Their Corresponding Classes:
+
 _________________________________________________-
 CS3110 - Functional Programming: 
   Enigma: 
