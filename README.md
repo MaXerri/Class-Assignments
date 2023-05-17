@@ -8,19 +8,20 @@ _________________________________________________
 
 
 CS3110 - Functional Programming: 
-  Enigma: 
-  Adventure: 
-  Search:   
-  RML: 
+  
+  Enigma: Implementation of a basic enigma machine similar t the functionality of those uused in WWII. 
+  
+  Adventure: Implementation of a text adventure game using a text based interface in terminal.
+  
+  Search:  Devleop a search engine for text documents which utilizes differnt dictionary implementations to search for documents.  
+  
+  RML: Build an interpretter for a simplified Ocaml language called RML (Robot Meta-Language)
   
 ____________________________________________________
 
 CS 4820 - Algorithms:
-  Gale Shapley Algorithm: 
-  
-  ???? : 
-  
-  Project Selection with Reduction to Ford Fulkerson: 
+
+  This folder contains coding problems where we had to constrct time eficient algorithms in java to corresponding to a given prompt which I have also included in the folder 
 
 ___________________________________________________
 
