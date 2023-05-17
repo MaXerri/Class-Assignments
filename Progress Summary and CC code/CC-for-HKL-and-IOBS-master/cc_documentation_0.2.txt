@@ -1,0 +1,167 @@
+﻿1. Calculating Distance Between Two Sets of Structure Factors
+   1. Generating the Spreadsheet
+      1. Pulling Data from threadripper
+         1. Logging into threadripper
+            1. For Windows:
+               1. Install PuTTY
+               2. Install Xming 
+               3. Open PuTTY
+               4. Under the category “Session”, enter “flops.arcib.org” as the Host Name and “22” as the Port
+               5. Expand the category “SSH” and open X11
+                  1. Check the box “Enable X11 forwarding”
+               1. Click “Open” on the bottom right corner
+               2. Enter your username and password
+         1. Unpacking tar.gz files 
+            1. Finding the desired tar.gz file
+               1. Type “cd /mnt/md1/home/yaya” to enter Dr. Herbert J. Bernstein’s file directory
+               2. Type “ls” to list the files inside of the directory
+               3. After you have found your desired tar.gz file, record your filename 
+               4. To unpack the tar.gz into your directory, type the following command: “tar -xvf filename -C ~/”
+               5. Type “cd’ to go back to your own directory 
+               6. Enter the directory of your unpacked tar.gz
+               7. There are many sublevels within the unpacked tar.gz, “cd” into the directory of your desired .HKL file and copy the file into your main file directory using the command “cp filename ~/”
+         1. Using the hkl_parser.py program 
+            1. Type “cd /home/jdiaz”
+            2. Copy the hkl_parser.py into your file directory using the command “cp hkl_parser.py ~/”
+            3. “cd” back into your directory 
+            4. To make the program work for your specific file, type the command “nano filename” and edit the filename in the text editor, then save it
+            5. To run the hkl_parser.py and create the output.csv file, type the command “./hkl_parser.py” (make sure the HKL file and the hkl_parser.py are in the same directory)
+         1. Pulling the output.csv file from UNIX to Windows
+            1. Use the command: scp -P 8184 jwei@flops.arcib.org:/path/to/file /where/to/put
+   1. Finding Matching Data Sets and Generating A Correlation Coefficient 
+      1. Make sure the 2 excel spreadsheets which were generated are opened 
+      2. Place the data from the 2 spreadsheets into the same chart 
+      3. Sort the Data By the H Value 
+         1. Do This in the Data Section of Excel 
+      1. Finding Matches of H K L in order to correlate the IOBS 
+         1. Creating Unique Memory Values for Data Sets 
+            1. Find the Min and Max for the H, K and L values regardless of the data 
+            2. This can be done using the min/max functions which excel has 
+            3. You will need a unique value column for both data sets and for the data set on the left side (data set A) of your spreadsheet put this between the L and IOBS column and for the data set to the right (data set B) you can put this column to the right of the IOBS column for future 
+            4. Subtract the Minimum from the maximum and add one to this value record this value for each H, K, and L  ( _Range)
+            5. Substitute the Values you found into this equation below ( |...| represents absolute value)
+            6.             =(h + |h_min|) + h_range *( k + |k_min|) + (k_range * h_range) *(l + |k_min|)
+            7. This allows us to match structure factors by their H K and L values without having to compare each value individually, which will make it easier to correlate the IOBS values from the 2 data sets 
+            8. Fill this formula down the column to the last row which has data for both of the data sets 
+         1. First Implementation of the VLOOKUP Function 
+            1. To the right of the Unique Value column for the data set B, add a VLOOKUP UNIQUE VAL Column where we will search for the unique value in data set A, which will align the 2 equivalent unique values and make future calculations easier 
+            2. Here is the syntax for the vlookup formula: VLOOKUP(lookup_value, table_array, col_index_num, [range_lookup])
+            3. Our exact formula was =IF(ISERROR(VLOOKUP(J2,$D$2:$E$22832,1, FALSE)),"",(VLOOKUP(J2,$D$2:$E$22832,1, FALSE)))
+            4. The IF(ISERROR part of the formula removes the error symbol when there is no match or if there is a calculation with a blank cell.  Look on our linked data sheet to see how the parameters are used
+            5. Fill This down to the bottom of the data set 
+         1. Next Step
+            1. Copy the IOBS column in the data set B to the right of the previous VLOOKUP column for future calculations because VLOOKUP can only look to the left  
+         1. 2nd Implementation of the VLOOKUP Formula 
+            1. In the column to the right of the copied IOBS_B Column we will make another vlookup formula except we will output the IOBS of the structure factor set A where a match between Unique Values across set A and set B was found  
+            2. The only thing that we changed from the previous VLOOKUP formula was that a 1 was changed to a 2 in the bolded section 
+=IF(ISERROR(VLOOKUP(J2,$D$2:$E$22832,1, FALSE)),"",(VLOOKUP(J2,$D$2:$E$22832,2, FALSE)))
+            1. Check the spreadsheet once again if you have any problems or need clarification; also check your own spreadsheet to make sure that your formulas were written correctly 
+            2. Once again the If(ISERROR function is to get rid of the error symbol that will occur when a blank cell is used in a function 
+            3. Fill this down to the end of the data set 
+      1. Finding the Correlation Coefficient and Distance 
+         1. Penalty Column of Dataset A
+            1. We must apply a penalty if a match was not found among the data sets 
+            2. penalty = 1/n was the formula we used but this can be changed and varied (n=the total number of matches across the data sets)
+            3. You can find N through the formula =COUNT(M2:M22832) where M is a row where we outputted IOBS of dataset A where a match was found across the two datasets
+            4. This formula can be entered at the end of the column which is equivalent to our column M for convenience, but could be entered anywhere else 
+            5. WE used the column to the right of the previous VLOOKUP Column we made the penalty column for data set A and the formula which we used was =IF(M2="",  penalty_value,  "")
+            6. Substitute your penalty value for penalty_ value
+            7. Fill This down down to the end of the dataset  
+         1. Product Column 
+            1. In the column to the right of the penalty column of dataset A, we will be multiplying the IOBS of dataset A and dataset B where matching Unique Values were found 
+            2. To do this, we used the equation =IF(ISERROR(I2*M2,“”,(I2*M2)) *M2 is the column of IOBS of dataset A where a match between datasets was found and I2 is the column of IOBS for dataset B*
+            3. Fill the column with the formula
+         1. Finding a^2 Value 
+            1. To the right of the product column, we will make an a^2 column where we will square the IOBS of data set A that come from a structure facture set which matches in both datasets 
+            2. Only IOBS of structure sets with mayches to the other data sets will be square 
+            3. The formula we used was =IF(ISERROR(M2*M2),“”,(M2*M2))
+            4. M is the column where we have the IOBS of structure factors in set A with matching HKL values to set B  
+         1. Calculating Penalty for Data Set B 
+            1. The steps for calculating penalty for Dataset B is the same as the steps for Dataset A, but the sum of the penalties for this could be different from dataset B if the datasets are different in lengths
+            2. Fill this penalty formula once again to the bottom of the data set just like with the other one 
+         1. Calculating the B^2 Values 
+            1. Just like we had to square the IOBS of the structure factors from set A that had matches from B, we had to the same for the matching factor sets from set B that match with A 
+            2. We have to use another VLOOKUP formula for this and this is the step where the copied IOBS value for data set B comes into play 
+            3. We want to find the IOBS from matching structure factors from data set B and we need to square these values
+            4. In order t square the value, we just used a VLOOKUP and multiplied it by the exactly same VLOOKUP. This was our large formula 
+=IF(ISERROR((VLOOKUP(J2,$K$2:$L$22832,2,FALSE))*(VLOOKUP(J2,$K$2:$L$22832,2,FALSE))),"",((VLOOKUP(J2,$K$2:$L$22832,2,FALSE))*(VLOOKUP(J2,$K$2:$L$22832,2,FALSE))))
+            1. For reference, look on the linked spreadsheet to see how our formula works 
+         1. Finalizing The Correlation Coefficient
+            1. Sum penalty column for a as well as b
+            2. Sum the products column 
+            3. Sum the a^2 column as well as the b^2 column  
+            4. Square root the sum of the a^2 column and the b^2 column 
+            5. To find the correlation coefficient, perform the following calculation: ( ΣProducts )/(SQRT( Σa^2)*SQRT( Σb^2))
+            6. This should be a value between 1 and -1and if not so there was a mistake made somewhere along the way 
+         1. Finalizing the Total Distance 
+            1. Add -1 to your correlation coefficient
+            2. Add Σpenalty_a and Σpenalty_b to the number we got from step 1 and that is your total distance between two structure factors
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Spreadsheet link: https://docs.google.com/spreadsheets/d/e/2PACX-1vQpfcb_JuMf7gEHKczrb_FrQn42kDCBYL_eBqe244IMBLDQqz579CpczDMZIczExmM_Qu8QBJ8fT7TW/pubhtml

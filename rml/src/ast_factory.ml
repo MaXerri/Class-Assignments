@@ -1,0 +1,35 @@
+open Ast
+
+let make_let_defn p e = LetD (p, e)
+let make_let_rec_defn p e = failwith "Unimplemented: make_let_rec_defn"
+let make_unit_pattern () = PUnit
+let make_wild_pattern () = PWild
+let make_bool_pattern b = PBool b
+let make_int_pattern n = PInt n
+let make_string_pattern s = PString s
+let make_var_pattern x = PVar x
+let make_pair_pattern p1 p2 = PPair (p1, p2)
+let make_nil_pattern () = PNil
+let make_cons_pattern p1 p2 = PCons (p1, p2)
+let make_unit () = Unit ()
+let make_bool b = Bool b
+let make_pair e1 e2 = Pair (e1, e2)
+let make_int n = Int n
+let make_string s = String s
+let make_self () = failwith "Unimplemented: make_self"
+let make_var x = Var x
+let make_fun p e = Func (p, e)
+let make_app e1 e2 = Fapp (e1, e2)
+let make_let p e1 e2 = Let (p, e1, e2)
+let make_let_rec p e1 e2 = failwith "Unimplemented: make_let_rec"
+let make_nil () = List []
+let make_bop b e1 e2 = Bop (b, e1, e2)
+let make_uop u e = Uop (u, e)
+let make_seq e1 e2 = Sequence (e1, e2)
+let make_ifelse e1 e2 e3 = If (e1, e2, e3)
+let make_match e cs = Pat (e, cs)
+let make_await p e1 e2 = failwith "Unimplemented: make_await"
+let make_spawn e1 e2 = failwith "Unimplemented: make_spawn"
+let make_send e1 e2 = failwith "Unimplemented: make_send"
+let make_recv e = failwith "Unimplemented: make_recv"
+let make_return e = failwith "Unimplemented: make_return"
