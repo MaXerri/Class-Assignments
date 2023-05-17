@@ -4,13 +4,17 @@ This is a conglomerate of class projects from CS3110: Functional Programming; CS
 
 Description of Project/Assignment Folders and Their Corresponding Classes:
 
-_________________________________________________-
+_________________________________________________
+
+
 CS3110 - Functional Programming: 
   Enigma: 
   Adventure: 
   Search:   
   RML: 
+  
 ____________________________________________________
+
 CS 4820 - Algorithms:
   Gale Shapley Algorithm: 
   
@@ -19,6 +23,7 @@ CS 4820 - Algorithms:
   Project Selection with Reduction to Ford Fulkerson: 
 
 ___________________________________________________
+
 CS 4780 - Machine Learning: 
   P1:
   P2:
