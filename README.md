@@ -31,6 +31,8 @@ Machine Learning:
 
  I did not write the skeleton of these files.  I only filled in the implementation of the ML algorithms. 
 
+* Kaggle Competition: Design a Machine learning model from scratch to predict if a dog's leg is lame from gait anayysis data
+
 *  P1: use K-nearest neighbors classifiers to build a basic classifier for face recognition
   
 *  P2:implement a simple Perceptron classifier to classify digits
