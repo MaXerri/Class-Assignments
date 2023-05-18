@@ -1,13 +1,13 @@
 # Class-Assignments
-This is a conglomerate of class projects from CS3110: Functional Programming; CS 4780: Introduction to Machine Learning; CS 4820: Algorithms; and CS 4750: Foundations of Robotics
+This is a conglomerate of class projects from Functional Programming, Introduction to Machine Learning, Algorithms, and Foundations of Robotics
 
 
-Description of Project/Assignment Folders and Their Corresponding Classes:
+Description of Project/Assignment Folders:
 
 _________________________________________________
 
 
-CS3110 - Functional Programming: 
+Functional Programming: 
 
  I did not write the skeleton of these files.  I only filled in the implementation of required functions. 
   
@@ -21,13 +21,13 @@ CS3110 - Functional Programming:
   
 ____________________________________________________
 
-CS 4820 - Algorithms:
+Algorithms:
 
 * This folder contains coding problems where we had to constrct time eficient algorithms in java to corresponding to a given prompt which I have also included in the folder.  This algorithms were written by scratch without any starter code. 
 
 ___________________________________________________
 
-CS 4780 - Machine Learning:  
+Machine Learning:  
 
  I did not write the skeleton of these files.  I only filled in the implementation of the ML algorithms. 
 
