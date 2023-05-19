@@ -23,7 +23,7 @@ ____________________________________________________
 
 Algorithms:
 
-* This folder contains multiple coding problems where we had to constrct time eficient algorithms in java to corresponding to a given prompt which I have also included in the folder.  This algorithms were written by scratch without any starter code in Java. 
+* This folder contains multiple coding problems where we had to constrct time eficient algorithms in java corresponding to a given prompt which Iincluded in the directory.  This algorithms were written by scratch without any starter code in Java. 
 
 ___________________________________________________
 
