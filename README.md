@@ -1,5 +1,5 @@
 # Class-Assignments
-This is a conglomerate of class projects from Functional Programming, Introduction to Machine Learning, Algorithms, and Foundations of Robotics
+This is a conglomerate of class projects from Functional Programming, Introduction to Machine Learning, Algorithms, and Foundations of Robotics.  Languages used include python, java, and ocaml.  
 
 
 Description of Project/Assignment Folders:
