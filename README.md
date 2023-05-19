@@ -11,19 +11,19 @@ Functional Programming:
 
  I did not write the skeleton of these files.  I only filled in the implementation of required functions. 
   
-*  Enigma: Implementation of a basic enigma machine similar t the functionality of those uused in WWII. 
+*  project1: Implementation of a basic enigma machine similar to the functionality of those used in WWII. 
   
-*  Adventure: Implementation of a text adventure game using a text based interface in terminal.
+*  project2: Implementation of a text adventure game using a text based interface in terminal.
   
-*  Search:  Devleop a search engine for text documents which utilizes differnt dictionary implementations to search for documents.  
+*  project3:  Devleop a search engine for text documents which utilizes differnt dictionary implementations to search for documents.  
   
-*  RML: Build an interpretter for a simplified Ocaml language called RML (Robot Meta-Language)
+*  project4: Build an interpretter for a simplified Ocaml language called Robot Meta-Language
   
 ____________________________________________________
 
 Algorithms:
 
-* This folder contains coding problems where we had to constrct time eficient algorithms in java to corresponding to a given prompt which I have also included in the folder.  This algorithms were written by scratch without any starter code. 
+* This folder contains multiple coding problems where we had to constrct time eficient algorithms in java to corresponding to a given prompt which I have also included in the folder.  This algorithms were written by scratch without any starter code in Java. 
 
 ___________________________________________________
 
