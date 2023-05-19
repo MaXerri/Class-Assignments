@@ -1,3 +1,0 @@
-let rec timmy ((john, mike) : handle * handle) : unit promise =
-  // TODO: Complete this function
-  return ()
