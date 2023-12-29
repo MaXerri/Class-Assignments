@@ -1,5 +1,5 @@
 # Class-Assignments
-This is a conglomerate of class projects from Functional Programming, Introduction to Machine Learning, Algorithms, and Foundations of Robotics.  Languages used include python, java, and ocaml.  
+This is a conglomerate of class projects from Functional Programming, Introduction to Machine Learning, Algorithms, Computer Systems, and Large-Scale ML.  Languages used include Python, C, Java, and OCaml.  
 
 
 ## Description of Project/Assignment Folders:
@@ -7,7 +7,7 @@ This is a conglomerate of class projects from Functional Programming, Introducti
 _________________________________________________
 
 
-Functional Programming: 
+### Functional Programming: 
 
  I did not write the skeleton of these files.  I only filled in the implementation of required functions. 
   
@@ -18,13 +18,13 @@ Functional Programming:
   
 ____________________________________________________
 
-Algorithms:
+### Algorithms:
 
 * This folder contains multiple coding problems where we had to constrct time eficient algorithms in java corresponding to a given prompt which Iincluded in the directory.  This algorithms were written by scratch without any starter code in Java. 
 
 ___________________________________________________
 
-Machine Learning:  
+### Machine Learning:  
 
  I did not write the skeleton of these files.  I only filled in the implementation of the ML algorithms. 
 
@@ -39,7 +39,7 @@ Machine Learning:
 * Kaggle Competition: Design a Machine learning model from scratch to predict if a dog's leg is lame from gait analysis data
 ___________________________________________________
 
-Computer System Org: 
+### Computer System Org: 
 
 For projects 3, 4, and 5, I did not write all of the code in these files.  A skeleton was given to us.
 
@@ -51,7 +51,7 @@ For projects 3, 4, and 5, I did not write all of the code in these files.  A ske
 
 ______________________________________________________
 
-Large-Scale Machine Learning: 
+### Large-Scale Machine Learning: 
 
 I did not write all of the code in these files.  A skeleton was given to us.
 
