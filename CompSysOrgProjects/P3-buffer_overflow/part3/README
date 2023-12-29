@@ -1,0 +1,13 @@
+# This task is slightly different than the others.
+# The user _gammaobstacle_ is running a guessing game on this machine; your goal is to win the game!
+# However, you are not expected to simply guess the secret word - this would be an impractical game to win.
+#
+# There is a flaw in the code to the game that you can exploit, to get it to TELL YOU THE SECRET!
+#
+# The `server.c` and `server.h` files are the source code for the game - they have been annotated
+# to highlight the portions of code merely used to implement the network communication
+# (which you DO NOT NEED TO EXPLOIT) and the likely vulnerable points in the code.
+#
+# You may want to check out (https://bit.ly/3dTaUaN) and (https://linux.die.net/man/3/snprintf)
+# to help figure out this exploit!
+#

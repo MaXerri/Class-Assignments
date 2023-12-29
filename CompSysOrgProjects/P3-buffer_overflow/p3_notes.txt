@@ -1,0 +1,70 @@
+load egg into memory (shellAddr)
+Put program couter at ShellAddr 
+
+
+modify return address? 
+
+ -  get to return address and modify to point to nex place over and put your shell code there 
+
+to get the shell code to memory, print what goes into memory
+
+shellcode is part of the inpnut and this is all part oa print statement
+
+find where return address is
+
+____________________________________________
+
+run c code and place breakpoint at fgets statement 
+
+(gdb) i f --> important --> This shows us where the previous frame's stack pointer is stored, and where the "helper" function has saved the return address register ("rip at 0x7ff...." (exact address varies) right under "Saved registers:").
+
+(gdb) i x/4xg buff -> prints 4 words (?) around where the starting address of the buffer is --> you can use this to get the start for the buffer and you know where you need to go using the i f function   
+
+the addresses of teh x/4xg are what is important
+
+you know where i f is stored based on i f 
+
+start of return address and start of buffer are needed 
+
+previous stack pointer from i f gives you return address
+
+
+
+PART2____________________________________________________________
+
+0x7fffffffd9d8
+
+
+padding is 10 bytes 
+
+e290 -  e280 = 16 
+
+buffer is above memory 
+
+ovewrite main's rip becasue it is higher is memory
+
+e2e8
+e2e0
+
+22 integers is 88 bytes
+__________________________________
+
+d9d0 / d9e0 --> this is ibuff
+da38
+
+2616 - 2512 = 104
+
+
+d9be --> this is strbuff 
+da38 --> 2616 - 2494 = 122
+
+trial and error for 3 using % 
+
+Part3 ___________________________________
+
+
+
+
+
+
+
