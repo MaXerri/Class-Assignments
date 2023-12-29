@@ -36,7 +36,6 @@ Machine Learning:
 * P6: Implement a linear support vector machine and one operating in kernel space utilizing PyTorch
 * P7: Implement a decision tree algorithm and then use it for bagging and boosting
 * P8: Implement a couple basic neural network to solve regression and image classification problems using PyTorch
-
 * Kaggle Competition: Design a Machine learning model from scratch to predict if a dog's leg is lame from gait analysis data
 ___________________________________________________
 
