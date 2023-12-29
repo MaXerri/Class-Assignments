@@ -1,0 +1,143 @@
+## cycles = 47
+## start[0] = 0x00000000
+## expect[0] = 0x00000000
+## start[1] = 0x00000001
+## expect[1] = 0x00000004
+## start[2] = 0x00000001
+## expect[2] = 0x00000000
+## start[3] = 0x00000001
+## expect[3] = 0x00000000
+## start[4] = 0x00000000
+## expect[4] = 0x00000001
+## start[5] = 0x00000000
+## expect[5] = 0x000007F9
+## start[6] = 0x00000001
+## expect[6] = 0x00000010
+## start[7] = 0x00000001
+## expect[7] = 0x0000000
+## start[8] = 0x00000001
+## expect[8] = 0x00000000
+## start[9] = 0x00000001
+## expect[9] = 0x0000004
+## start[10] = 0x00000000
+## expect[10] = 0x000007FF
+## start[11] = 0x00000000
+## expect[11] = 0x000007FF
+## start[12] = 0x00000000
+## expect[12] = 0x000007FF
+## start[13] = 0x00000000
+## expect[13] = 0x00400000
+## start[14] = 0x00000001
+## expect[14] = 0x00000001
+## start[15] = 0x00000001
+## expect[15] = 0x00000004
+## start[16] = 0x00000001
+## expect[16] = 0x00000123
+## start[17] = 0x00000001
+## expect[17] = 0x00002300
+## start[18] = 0x00000000
+## expect[18] = 0x00000023
+## start[19] = 0x00000000
+## expect[19] = 0x00230000
+## start[20] = 0x00000000
+## expect[20] = 0x00000023
+## start[21] = 0x00000001
+## expect[21] = 0x0000000
+## start[22] = 0x00000000
+## expect[22] = 0x12345678
+## start[23] = 0x00000000
+## expect[23] = 0x0000012
+## start[24] = 0x00000000
+## expect[24] = 0x00000078
+## start[25] = 0x00000000
+## expect[25] = 0x00000056
+## start[26] = 0x00000000
+## expect[26] = 0x0000000
+## start[27] = 0x00000000
+## expect[27] = 0x0000012
+## start[28] = 0x00000000
+## expect[28] = 0x0000000a
+## start[29] = 0x00000000
+## expect[29] = 0x00000010
+## start[30] = 0x00000001
+## expect[30] = 0x02000000
+## start[31] = 0x00000001
+## expect[31] = 0x80000000
+
+
+# testing add R type and ADDI and ANDI 
+# these tests were manually made to test edge and corner cases.  I tested pos and neg immediates and immediates of max and min size.  I ensure that the signe extension of immediates is also working properly here
+# some R type instruction have very minimal testing becasue edge cases are more associated with the ALU which we assume is correct and are testing with general cases and some random cases from testing GCD.
+
+add x1, x1, x1  # test addition general case (more tests for and below)
+addi x1, x1, 2  # test immediate with low value
+addi x5, x5, 2047 # test immediate with max signed 12 bit integer
+addi x5, x5, -6 # immediate with negative number to check sign ext.
+sub x2, x3, x2 # testing subtraction general
+slt x3, x1, x3 # greater than case for slt
+slt x4, x2, x1 # less than case for slt
+sll x6, x4, x1 # shift left logical general
+sll x30, x4, x5 # test shift where x5 > 32 bit only 5 LSBs are taken as SA value
+sra x7, x1, x4 # shift right arithmetic test general case 
+sra x7, x7, x7 # sra general test case
+and x8, x1, x4 # testing and operation general case 
+and x1, x1, x1 # test and operation general case
+andi x9, x1, -1 # tetsing negative immediate w/ andi
+addi x10, x10, 2047
+andi x10, x10, 2047 # testing addi w/ max positive immediate
+
+# testing load and store instructions and LUI 
+# i Tested to ensure no store or load is performed when address > 20 bits and also ensured that the bit selection through the bit making i used for LB and SB was working properly.  I also ensure that sign extension for negative immediates is working properly
+
+sw x10, 2047(x4) # testsing max positive immediate for sw  
+lw x11, 1(x10) # testing load correctly loads from memory with an immediate 
+lw x12, 2047(x4) # tetsing load with a max positive immediate 
+lui x31, -524288 # testing lui to make largest negative number 
+lui x13, 1024 # testing load upper immediate general
+sw x12, 0(x13) # testing no wrap around for upper bound of memory for store word
+lw x14, 0(x13) # tetsing no wrap around for upper bound of memory for lw
+lb x1, 1(x13) # testing no wrap around for upper bound of memory for lb
+sb x1, 20(x13) # testing no wrap around for upper bound of memory  for sb
+sw x1, -12(x6) # tetsing negative immediate with store 
+lw x15, -2043(x12) # testing a negative immediate with load
+addi x16, x0, 291
+sb x16, 21(x0) # testing select bits for sb
+lw x17, 20(x0) 
+lb x18, 21(x0) # testing selection bits for lb
+sb x16, 26(x0) # testing selct bits for sb
+lw x19, 24(x0) 
+lb x20, 26(x0) # testing select bits for lb 
+lb x21, 27(x0) # tetsing select bits for lb 
+lui x22, 74565 # using lui to create number to test lb 
+addi x22, x22, 1656 # using addi with lui to create number to test lb
+sw x22, 32(x0) # storing x22 in mem to test lb for different bit cs values for the RAM
+lb x23, 35(x0) 
+lb x24, 32(x0)  
+lb x25, 33(x0)  
+
+# tesing for beq: I ensure that beq works for positive and negative immediates and also works in both cases where rs1=rs2 and where rs1!= rs2 so that the crrect instructions are exectuted
+
+beq x0, x0, 12 # tetsing equals case of beq
+addi x0, x0, 0 
+addi x26, x0, 3
+addi x27, x27, 9
+beq x0, x27, 8 # testing neq case of beq 
+addi x28, x27, 1
+addi x29, x0, 16
+beq x0, x0, -16  # testing negative immediates with beq 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

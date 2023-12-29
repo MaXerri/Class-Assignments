@@ -1,0 +1,27 @@
+# Truth table
+# Generated from circuit control
+# Exported on Tue Sep 26 21:57:58 EDT 2023
+
+# Hints and Notes on Formatting:
+# * You can edit this file then import it back into Logisim!
+# * Anything after a '#' is a comment and will be ignored.
+# * Blank lines and separator lines (e.g., ~~~~~~) are ignored.
+# * Keep column names simple (no spaces, punctuation, etc.)
+# * 'Name[N..0]' indicates an N+1 bit variable, whereas
+#   'Name' by itself indicates a 1-bit variable.
+# * You can use 'x' or '-' to indicate "don't care" for both
+#   input and output bits.
+# * You can use binary (e.g., '10100011xxxx') notation or
+#   or hex (e.g., 'C3x'). Logisim will figure out which is which.
+
+instr[6..0] | ALUsrc MemToReg RegWrite MemRead MemWrite branch 
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+0110011 |   0      0       1        0        0       0           
+0010011 |   1      0       1        0        0       0           
+0000011 |   1      1       1        1        0       0           
+0100011 |   1      -       0        0        1       0           
+0110111 |   1      0       1        0        0       0            
+1100011 |   1      -       0        0        0       1           
+  
+  
+  
