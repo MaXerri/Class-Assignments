@@ -28,16 +28,16 @@ Machine Learning:
 
  I did not write the skeleton of these files.  I only filled in the implementation of the ML algorithms. 
 
-*  P1: Used K-nearest neighbors classifiers to build a basic classifier for face recognition
-*  P2: Implemented a simple Perceptron classifier to classify digits
-*  P3: Create a system that detects every time a word is German and translates it for you in the subtitles. In this project, you will just implement the first part of this system using Naïve Bayes to predict if a word is German or English
-*  P4: Utilize the adagrad gradient descent algorithm with different loss functions (ridge, logistic and hinge) to build a spam filter
-*  P5: Computing bias, variance, and noise for datasets and showing the effects of regularizers on prediction models
-*  P6: Implement a linear support vector machine and one operating in kernel space utilizing PyTorch
-*  P7: Implement a decision tree algorithm and then use it for bagging and boosting
-*  P8: Implement a couple basic neural network to solve regression and image classification problems using PyTorch
+* P1: Used K-nearest neighbors classifiers to build a basic classifier for face recognition
+* P2: Implemented a simple Perceptron classifier to classify digits
+* P3: Create a system that detects every time a word is German and translates it for you in the subtitles. In this project, you will just implement the first part of this system using Naïve Bayes to predict if a word is German or English
+* P4: Utilize the adagrad gradient descent algorithm with different loss functions (ridge, logistic and hinge) to build a spam filter
+* P5: Computing bias, variance, and noise for datasets and showing the effects of regularizers on prediction models
+* P6: Implement a linear support vector machine and one operating in kernel space utilizing PyTorch
+* P7: Implement a decision tree algorithm and then use it for bagging and boosting
+* P8: Implement a couple basic neural network to solve regression and image classification problems using PyTorch
 
-*  * Kaggle Competition: Design a Machine learning model from scratch to predict if a dog's leg is lame from gait analysis data
+* Kaggle Competition: Design a Machine learning model from scratch to predict if a dog's leg is lame from gait analysis data
 ___________________________________________________
 
 Computer System Org: 
