@@ -55,11 +55,11 @@ ______________________________________________________
 
 I did not write all of the code in these files.  A skeleton was given to us.
 
-* A1:
-* A2:
-* A3:
-* A4:
-* A5: 
+* A1: Implement a simple backpropagation engine 
+* A2: Implement and evaluate GD and SGD for empirical risk minimization and multinomial logistic regression task on the MNIST set.  Work with minibatched SGD, SGD with sequential sampling, and SGD with random reshuffling
+* A3: Train basic deep NN with PyTorch on the MNIST set
+* A4: USe Bayesian optimization to tune the hyperparameters of SGD 
+* A5: Evaluate impacts of memory allocation and parallelism on SGD.  Explores buildt in numpy multithreading and an implementation multithreaded SGD in python
 
 ______________________________________________________
  
